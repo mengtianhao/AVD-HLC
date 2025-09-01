@@ -28,6 +28,6 @@ class Config:
 
     device_num = 0
 
-    checkpoints = 'MyView_exp0_checkpoint_best.pth'
+    checkpoints = 'MyView_exp1_checkpoint_best.pth'
 
 config = Config()
