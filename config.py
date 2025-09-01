@@ -13,9 +13,9 @@ class Config:
     datafolder = '../data/ptbxl/'
     # datafolder = '../data/SPH/'
 
-    # exp0, exp1, exp1.1, exp1.1.1, exp2, exp3
+    # exp1, exp1.1, exp1.1.1, exp2, exp3
 
-    experiment = 'exp0'
+    experiment = 'exp1'
 
     # train model name:  MyView, resnet1d_wang, inceptiontime, fcn_wang, lstm, mobilenetv3_small, ...
     model_name = 'MyView'
