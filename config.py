@@ -7,7 +7,7 @@
 
 class Config:
 
-    seed = 10
+    seed = 20
 
     # path
     datafolder = '../data/ptbxl/'
