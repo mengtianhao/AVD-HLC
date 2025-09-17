@@ -7,7 +7,7 @@ from sklearn.metrics import roc_auc_score
 import numpy as np
 import random
 import pandas as pd
-from utils import find_best_thresholds, find_best_precision, compute_mAP
+from utils import find_thresholds, find_precision, compute_mAP
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -77,8 +77,8 @@ def train_epoch(model, optimizer, criterion, train_dataloader):
     TPR = utils.compute_TPR(targets, outputs)
     #
     mAP = compute_mAP(targets, outputs)
-    best_thresholds, best_f1s = find_best_thresholds(targets, outputs)
-    best_precisions, best_recalls = find_best_precision(targets, outputs)
+    best_thresholds, best_f1s = find_thresholds(targets, outputs)
+    best_precisions, best_recalls = find_precision(targets, outputs)
     print('train_loss: %.4f,   macro_auc: %.4f,   TPR: %.4f, f1: %.4f, precision: %.4f, recall: %.4f, mAP: %.4f' % (
     loss_meter / it_count, auc, TPR, np.mean(best_f1s), np.mean(best_precisions), np.mean(best_recalls), mAP))
     return loss_meter / it_count, auc, TPR, best_f1s, best_precisions, best_recalls, mAP
@@ -111,8 +111,8 @@ def val_epoch(model, criterion, val_dataloader):
 
     #
     mAP = compute_mAP(targets, outputs)
-    best_thresholds, best_f1s = find_best_thresholds(targets, outputs)
-    best_precisions, best_recalls = find_best_precision(targets, outputs)
+    best_thresholds, best_f1s = find_thresholds(targets, outputs)
+    best_precisions, best_recalls = find_precision(targets, outputs)
     print('val_loss: %.4f,   macro_auc: %.4f,   TPR: %.4f, f1: %.4f, precision: %.4f, recall: %.4f, mAP: %.4f' % (
     loss_meter / it_count, auc, TPR, np.mean(best_f1s), np.mean(best_precisions), np.mean(best_recalls), mAP))
     return loss_meter / it_count, auc, TPR, best_f1s, best_precisions, best_recalls, mAP
@@ -146,8 +146,8 @@ def test_epoch(model, criterion, test_dataloader):
 
     #
     mAP = compute_mAP(targets, outputs)
-    best_thresholds, best_f1s = find_best_thresholds(targets, outputs)
-    best_precisions, best_recalls = find_best_precision(targets, outputs)
+    best_thresholds, best_f1s = find_thresholds(targets, outputs)
+    best_precisions, best_recalls = find_precision(targets, outputs)
     print('test_loss: %.4f,   macro_auc: %.4f,   TPR: %.4f, f1: %.4f, precision: %.4f, recall: %.4f, mAP: %.4f' % (
     loss_meter / it_count, auc, TPR, np.mean(best_f1s), np.mean(best_precisions), np.mean(best_recalls), mAP))
     return loss_meter / it_count, auc, TPR, best_f1s, best_precisions, best_recalls, mAP
