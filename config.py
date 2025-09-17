@@ -13,14 +13,12 @@ class Config:
     datafolder = '../data/ptbxl/'
     # datafolder = '../data/SPH/'
 
-    # exp1, exp1.1, exp1.1.1, exp2, exp3
-
     experiment = 'exp1'
 
-    # train model name:  MyView, resnet1d_wang, inceptiontime, fcn_wang, lstm, mobilenetv3_small, ...
-    model_name = 'MyView'
+    # train model name:  MyBackbone, resnet1d_wang, mobilenetv3_small, ...
+    model_name = 'MyBackbone'
 
-    batch_size = 32
+    batch_size = 64
 
     max_epoch = 100
 
@@ -28,6 +26,6 @@ class Config:
 
     device_num = 0
 
-    checkpoints = 'MyView_exp1_checkpoint_best.pth'
+    checkpoints = 'MyBackbone_exp1_checkpoint_best.pth'
 
 config = Config()
